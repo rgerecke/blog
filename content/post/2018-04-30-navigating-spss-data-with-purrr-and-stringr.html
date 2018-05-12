@@ -1,0 +1,93 @@
+---
+title: navigating SPSS data with purrr and stringr - part i
+author: renata gerecke
+date: '2018-04-30'
+categories:
+  - haven
+  - purrr
+  - rstats
+  - spss
+  - stringr
+tags:
+  - haven
+  - purrr
+  - rstats
+  - spss
+  - stringr
+slug: navigating-spss-data-with-purrr-and-stringr
+---
+
+
+
+<p>There is a lot not to like about SPSS: it’s expensive, it’s proprietary, it’s not very flexible. But I have to give it credit for one thing: maintaining separate variable names and labels.</p>
+<p>In SPSS data files–which use the <code>.sav</code> extension–each variable has a name like an R variable. These names follow many of the same conventions of R variable names, for example, they can’t contain spaces or start with numbers. But each SPSS data file also has a built-in data dictionary, which includes:</p>
+<ul>
+<li>A label (which can include spaces, punctuation)</li>
+<li>Value labels</li>
+<li>Variable type</li>
+<li>Other metadata</li>
+</ul>
+<p>The <code>haven</code> package allows you to easily load in SPSS data files–including that sweet, sweet variable metadata.</p>
+<pre class="r"><code>suppressPackageStartupMessages(library(tidyverse))
+library(haven)
+
+df &lt;- read_sav(&quot;../../static/data/SampleData.sav&quot;)
+
+glimpse(df)</code></pre>
+<pre><code>## Observations: 20
+## Variables: 11
+## $ respid &lt;dbl&gt; 1140, 1785, 1708, 1069, 1777, 1943, 1655, 1267, 1699, 1...
+## $ q1     &lt;dbl+lbl&gt; 3, 1, 1, 5, 3, 5, 3, 4, 3, 4, 1, 2, 2, 5, 3, 3, 5, ...
+## $ q2     &lt;dbl+lbl&gt; 1, 4, 5, 5, 1, 1, 1, 2, 3, 5, 2, 5, 5, 3, 1, 1, 5, ...
+## $ q3     &lt;dbl+lbl&gt; 5, 5, 3, 5, 3, 4, 5, 4, 5, 1, 3, 2, 5, 2, 3, 1, 4, ...
+## $ q4     &lt;dbl+lbl&gt; 3, 3, 3, 2, 5, 3, 3, 5, 2, 1, 1, 3, 2, 3, 5, 2, 5, ...
+## $ q5     &lt;dbl+lbl&gt; 3, 3, 1, 5, 5, 1, 2, 1, 1, 1, 5, 3, 4, 3, 3, 4, 4, ...
+## $ q6     &lt;dbl+lbl&gt; 5, 4, 1, 1, 1, 1, 2, 1, 1, 1, 5, 3, 1, 1, 3, 2, 3, ...
+## $ q7     &lt;dbl+lbl&gt; 4, 3, 5, 1, 4, 2, 1, 5, 1, 4, 3, 3, 4, 3, 4, 1, 4, ...
+## $ q8     &lt;dbl+lbl&gt; 2, 5, 3, 2, 4, 4, 2, 5, 3, 1, 3, 2, 1, 3, 2, 2, 1, ...
+## $ q9     &lt;dbl+lbl&gt; 2, 4, 3, 4, 3, 4, 2, 5, 4, 2, 2, 5, 2, 4, 4, 5, 2, ...
+## $ q10    &lt;dbl+lbl&gt; 1, 3, 5, 5, 4, 5, 2, 2, 1, 4, 1, 1, 3, 1, 2, 5, 1, ...</code></pre>
+<p>In R, having variables labeled <code>q1</code> through <code>q10</code> can be quite nice–for example, it allows you to take advantage of <code>dplyr::num_range()</code> when trying to select particular variables. But they don’t really give you a sense of what the variable represents.</p>
+<p>By reading in the labelled SPSS data with the <code>haven</code> package, however, we have preserved the variable labels! For a long time, I had no idea how to access this information–it took reading the first chapter of <a href="http://adv-r.had.co.nz/">Hadley Wickham’s Advanced R</a> (in particular, <a href="http://adv-r.had.co.nz/Data-structures.html#attributes">this section on attributes</a>) for me to figure it out.</p>
+<p>Here, he explains that we can use the function <code>attributes()</code> to call an object’s attributes–in this case, the metadata for a given SPSS variable:</p>
+<pre class="r"><code>attributes(df$q1)</code></pre>
+<pre><code>## $label
+## [1] &quot;Instagram is my favorite place to post&quot;
+## 
+## $format.spss
+## [1] &quot;F8.0&quot;
+## 
+## $class
+## [1] &quot;labelled&quot;
+## 
+## $labels
+## strongly disagree    strongly agree 
+##                 1                 5</code></pre>
+<p>If we want to call a specific attribute–for example, just the label of a given variable–we can use the function <code>attr()</code> like so:</p>
+<pre class="r"><code>attr(df$q1, &quot;label&quot;)</code></pre>
+<pre><code>## [1] &quot;Instagram is my favorite place to post&quot;</code></pre>
+<p>And if we want to read the labels for all of our variables? We can quickly iterate through our data frame using <code>purrr::map_chr()</code> [which handily returns a character vector instead of a list]:</p>
+<pre class="r"><code>map_chr(df, ~attr(., &quot;label&quot;))</code></pre>
+<pre><code>##                                   respid 
+##                          &quot;Respondent ID&quot; 
+##                                       q1 
+## &quot;Instagram is my favorite place to post&quot; 
+##                                       q2 
+##  &quot;Facebook is my favorite place to post&quot; 
+##                                       q3 
+##   &quot;Twitter is my favorite place to post&quot; 
+##                                       q4 
+##  &quot;Snapchat is my favorite place to post&quot; 
+##                                       q5 
+##    &quot;Reddit is my favorite place to post&quot; 
+##                                       q6 
+## &quot;Instagram is my favorite place to read&quot; 
+##                                       q7 
+##  &quot;Facebook is my favorite place to read&quot; 
+##                                       q8 
+##   &quot;Twitter is my favorite place to read&quot; 
+##                                       q9 
+##  &quot;Snapchat is my favorite place to read&quot; 
+##                                      q10 
+##    &quot;Reddit is my favorite place to read&quot;</code></pre>
+<p>Tune in next time to learn how to use <code>stringr</code> to navigate SPSS data with large numbers of variables!</p>

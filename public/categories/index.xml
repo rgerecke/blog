@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on renata gerecke</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on renata gerecke</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Haven</title>
+      <link>/categories/haven/</link>
+      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/haven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Purrr</title>
+      <link>/categories/purrr/</link>
+      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/purrr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rstats</title>
+      <link>/categories/rstats/</link>
+      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/rstats/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spss</title>
+      <link>/categories/spss/</link>
+      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/spss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stringr</title>
+      <link>/categories/stringr/</link>
+      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/stringr/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

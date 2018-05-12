@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spss on renata gerecke</title>
+    <link>/tags/spss/</link>
+    <description>Recent content in Spss on renata gerecke</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/spss/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>navigating SPSS variables with purrr and stringr - part ii</title>
+      <link>/post/navigating-spss-variables-with-purrr-and-stringr-part-ii/</link>
+      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/navigating-spss-variables-with-purrr-and-stringr-part-ii/</guid>
+      <description>Recap Last post, I wrote about how we can access SPSS variable metadata using the attributes() and attr() functions in R; in combination with purrr:map_chr() we can easily view variable labels, levels, and more.
+Though the sample data I’ve created only has 10 variables, often I find myself working with hundreds, and little idea how to find the precise variable names I’m looking for. I’ve found stringr:str_extract() to be particularly powerful in this scenario.</description>
+    </item>
+    
+    <item>
+      <title>navigating SPSS data with purrr and stringr - part i</title>
+      <link>/post/navigating-spss-data-with-purrr-and-stringr/</link>
+      <pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/navigating-spss-data-with-purrr-and-stringr/</guid>
+      <description>There is a lot not to like about SPSS: it’s expensive, it’s proprietary, it’s not very flexible. But I have to give it credit for one thing: maintaining separate variable names and labels.
+In SPSS data files–which use the .sav extension–each variable has a name like an R variable. These names follow many of the same conventions of R variable names, for example, they can’t contain spaces or start with numbers.</description>
+    </item>
+    
+  </channel>
+</rss>

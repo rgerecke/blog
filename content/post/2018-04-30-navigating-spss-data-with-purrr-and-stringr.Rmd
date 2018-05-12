@@ -1,0 +1,64 @@
+---
+title: navigating SPSS data with purrr and stringr - part i
+author: renata gerecke
+date: '2018-04-30'
+categories:
+  - haven
+  - purrr
+  - rstats
+  - spss
+  - stringr
+tags:
+  - haven
+  - purrr
+  - rstats
+  - spss
+  - stringr
+slug: navigating-spss-data-with-purrr-and-stringr
+---
+
+
+There is a lot not to like about SPSS: it's expensive, it's proprietary, it's not very flexible. But I have to give it credit for one thing: maintaining separate variable names and labels. 
+
+In SPSS data files--which use the `.sav` extension--each variable has a name like an R variable. These names follow many of the same conventions of R variable names, for example, they can't contain spaces or start with numbers. But each SPSS data file also has a built-in data dictionary, which includes:
+
+- A label (which can include spaces, punctuation)
+- Value labels
+- Variable type
+- Other metadata
+
+The `haven` package allows you to easily load in SPSS data files--including that sweet, sweet variable metadata.
+
+```{r read data}
+suppressPackageStartupMessages(library(tidyverse))
+library(haven)
+
+df <- read_sav("../../static/data/SampleData.sav")
+
+glimpse(df)
+```
+
+In R, having variables labeled `q1` through `q10` can be quite nice--for example, it allows you to take advantage of `dplyr::num_range()` when trying to select particular variables. But they don't really give you a sense of what the variable represents. 
+
+By reading in the labelled SPSS data with the `haven` package, however, we have preserved the variable labels! For a long time, I had no idea how to access this information--it took reading the first chapter of [Hadley Wickham's Advanced R](http://adv-r.had.co.nz/) (in particular, [this section on attributes](http://adv-r.had.co.nz/Data-structures.html#attributes)) for me to figure it out. 
+
+Here, he explains that we can use the function `attributes()` to call an object's attributes--in this case, the metadata for a given SPSS variable:
+
+```{r metadata for q1}
+attributes(df$q1)
+```
+
+
+If we want to call a specific attribute--for example, just the label of a given variable--we can use the function `attr()` like so:
+
+```{r label for q1}
+attr(df$q1, "label")
+```
+
+And if we want to read the labels for all of our variables? We can quickly iterate through our data frame using `purrr::map_chr()` [which handily returns a character vector instead of a list]:
+
+```{r labels for df}
+map_chr(df, ~attr(., "label"))
+```
+
+Tune in next time to learn how to use `stringr` to navigate SPSS data with large numbers of variables! 
