@@ -1,5 +1,5 @@
 theme = "hugo-theme-cactus-plus"
-baseURL = "https://renatagerecke.netlify.com"
+baseURL = "https://renatagerecke.netlify.com/"
 languageCode = "en-us"
 title = "renata gerecke"
 
