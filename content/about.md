@@ -1,9 +1,10 @@
 ---
 title: "about renata"
-date: "2018-04-22"
+date: "2019-01-20"
+weight: 10
 ---
 
-renata gerecke is a data scientist at an international market research firm in Cincinnati, OH. There she focuses on integrating behavioral & survey data, unsupervised segmentations, and building interactive simulators. Her primary tool is R, though she also works with Python and SPSS.
+renata gerecke is a data scientist at an international market research consulting firm in Cincinnati, OH. There she focuses on working with new data sources and building interactive visualizations and dashboards. Her primary tool is R, though she also works with SPSS, Python and Excel.
 
 When not data wrangling, renata enjoys reading fiction, bowling, and spying on the dogs outside with her cat, Wolf. 
 

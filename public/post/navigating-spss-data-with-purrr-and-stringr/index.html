@@ -46,7 +46,7 @@
                     </h1>
                     <h2 class="headline">
                     Jan 20, 2019 00:00
-                    · 718 words
+                    · 723 words
                     · 4 minute read
                       <span class="tags">
                       
@@ -69,7 +69,8 @@
                 </header>
                 
                 <section id="post-body">
-                    <p>There is a lot not to like about SPSS: it’s expensive, it’s proprietary, it’s not very flexible. But I have to give it credit for one thing: maintaining separate variable names and labels.</p>
+                    <p><a href="https://github.com/rvg02010/blog/tree/master/static/data/2019-01-20_sample-data.sav"><strong>Download data for this blog</strong></a></p>
+<p>There is a lot not to like about SPSS: it’s expensive, it’s proprietary, it’s not very flexible. But I have to give it credit for one thing: maintaining separate variable names and labels.</p>
 <p>In SPSS data files–which use the <code>.sav</code> extension–each variable has a name like an R variable. These names follow many of the same conventions of R variable names, for example, they can’t contain spaces or start with numbers. But each SPSS data file also has a built-in data dictionary, which includes:</p>
 <ul>
 <li>A label (which can include spaces, punctuation)</li>
@@ -82,7 +83,7 @@
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.1</code></pre>
 <pre class="r"><code>library(haven)
 
-df &lt;- read_sav(&quot;../../static/data/SampleData.sav&quot;)
+df &lt;- read_sav(&quot;../../static/data/2019-01-20_sample-data.sav&quot;)
 
 glimpse(df)</code></pre>
 <pre><code>## Observations: 20

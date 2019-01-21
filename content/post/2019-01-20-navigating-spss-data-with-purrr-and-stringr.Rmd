@@ -15,8 +15,10 @@ tags:
   - spss
   - stringr
 slug: navigating-spss-data-with-purrr-and-stringr
+weight: 11
 ---
 
+[**Download data for this blog**](https://github.com/rvg02010/blog/tree/master/static/data/2019-01-20_sample-data.sav)
 
 There is a lot not to like about SPSS: it's expensive, it's proprietary, it's not very flexible. But I have to give it credit for one thing: maintaining separate variable names and labels. 
 
@@ -27,13 +29,13 @@ In SPSS data files--which use the `.sav` extension--each variable has a name lik
 - Variable type
 - Other metadata
 
-The `haven` package allows you to easily load in SPSS data files--including that sweet, sweet variable metadata.
+The `haven` package allows you to easily load in SPSS data files--including that sweet, sweet variable metadata. 
 
 ```{r read data}
 suppressPackageStartupMessages(library(tidyverse))
 library(haven)
 
-df <- read_sav("../../static/data/SampleData.sav")
+df <- read_sav("../../static/data/2019-01-20_sample-data.sav")
 
 glimpse(df)
 ```
