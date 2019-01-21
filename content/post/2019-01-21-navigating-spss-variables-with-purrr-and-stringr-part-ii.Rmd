@@ -1,7 +1,7 @@
 ---
 title: navigating SPSS variables with purrr and stringr - part ii
 author: renata gerecke
-date: '2018-05-03'
+date: '2019-01-21'
 categories:
   - haven
   - purrr
@@ -15,6 +15,7 @@ tags:
   - spss
   - stringr
 slug: navigating-spss-variables-with-purrr-and-stringr-part-ii
+draft: true
 ---
 
 

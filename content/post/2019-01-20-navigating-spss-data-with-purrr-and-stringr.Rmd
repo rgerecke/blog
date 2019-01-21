@@ -1,7 +1,7 @@
 ---
 title: navigating SPSS data with purrr and stringr - part i
 author: renata gerecke
-date: '2018-04-30'
+date: '2019-01-20'
 categories:
   - haven
   - purrr
@@ -38,7 +38,7 @@ df <- read_sav("../../static/data/SampleData.sav")
 glimpse(df)
 ```
 
-In R, having variables labeled `q1` through `q10` can be quite nice--for example, it allows you to take advantage of `dplyr::num_range()` when trying to select particular variables. But they don't really give you a sense of what the variable represents. 
+In R, having variables labeled `q1` through `q10` can be quite nice--for example, it allows you to take advantage of `dplyr::num_range()` or `dplyr::starts_with()` when trying to select particular variables. But they don't really give you a sense of what the variable represents. 
 
 By reading in the labelled SPSS data with the `haven` package, however, we have preserved the variable labels! For a long time, I had no idea how to access this information--it took reading the first chapter of [Hadley Wickham's Advanced R](http://adv-r.had.co.nz/) (in particular, [this section on attributes](http://adv-r.had.co.nz/Data-structures.html#attributes)) for me to figure it out. 
 
@@ -61,4 +61,4 @@ And if we want to read the labels for all of our variables? We can quickly itera
 map_chr(df, ~attr(., "label"))
 ```
 
-Tune in next time to learn how to use `stringr` to navigate SPSS data with large numbers of variables! 
+Tune in next time to learn how to use `stringr` to use SPSS variable labels to transform our data!
