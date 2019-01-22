@@ -2,10 +2,15 @@ theme = "hugo-theme-cactus-plus"
 baseURL = "https://renatagerecke.netlify.com/"
 languageCode = "en-us"
 title = "renata gerecke"
+googleAnalytics = "UA-34563772-2"
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 
 [params]
     author = "renata gerecke"
+    
+[social]
+    github = "https://www.github.com/rvg02010"
+    twitter = "https://www.twitter.com/renatagerecke"
     
