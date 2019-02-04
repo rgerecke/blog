@@ -1,75 +1,25 @@
-<!DOCTYPE html>
-<html lang="en-us">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<meta name="author" content="renata gerecke">
-		
-		<meta name="generator" content="Hugo 0.39" />
-		<title>navigating SPSS variables with purrr and stringr - part ii &middot; renata gerecke</title>
-		<link rel="shortcut icon" href="/images/favicon.ico">
-		<link rel="stylesheet" href="/css/style.css">
-		<link rel="stylesheet" href="/css/highlight.css">
-
-		
-		<link rel="stylesheet" href="/css/monosocialiconsfont.css">
-		
-
-		
-
-		
-	</head>
-
-    <body>
-       <nav class="main-nav">
-	
-	
-		<a href='/'> <span class="arrow">←</span>Home</a>
-	
-	<a href='/posts'>Archive</a>
-	<a href='/tags'>Tags</a>
-	<a href='/about'>About</a>
-
-	
-
-	
-</nav>
+---
+title: navigating SPSS variables with purrr and stringr - part ii
+author: renata gerecke
+date: '2019-02-03'
+categories:
+  - haven
+  - purrr
+  - rstats
+  - spss
+  - stringr
+tags:
+  - haven
+  - purrr
+  - rstats
+  - spss
+  - stringr
+slug: navigating-spss-variables-with-purrr-and-stringr-part-ii
+---
 
 
-        <section id="wrapper" class="post">
-            <article>
-                <header>
-                    <h1>
-                        navigating SPSS variables with purrr and stringr - part ii
-                    </h1>
-                    <h2 class="headline">
-                    Feb 3, 2019 00:00
-                    · 956 words
-                    · 5 minute read
-                      <span class="tags">
-                      
-                      
-                          
-                              <a href="/tags/haven">haven</a>
-                          
-                              <a href="/tags/purrr">purrr</a>
-                          
-                              <a href="/tags/rstats">rstats</a>
-                          
-                              <a href="/tags/spss">spss</a>
-                          
-                              <a href="/tags/stringr">stringr</a>
-                          
-                      
-                      
-                      </span>
-                    </h2>
-                </header>
-                
-                <section id="post-body">
-                    <div id="recap" class="section level2">
+
+<div id="recap" class="section level2">
 <h2>Recap</h2>
 <p><a href="https://renatagerecke.netlify.com/post/navigating-spss-data-with-purrr-and-stringr/">Last post</a>, I wrote about how we can access SPSS variable metadata using the <code>attributes()</code> and <code>attr()</code> functions in R; in combination with <code>purrr:map_chr()</code> we can easily view variable labels, levels, and more.</p>
 <p>Though the sample data I’ve created only has 10 variables, often I find myself working with hundreds, and little idea how to find the precise variable names I’m looking for. I’ve found <code>stringr:str_detect()</code> (in conjuction with <code>dplyr::select_if()</code>) to be particularly powerful in this scenario.</p>
@@ -219,58 +169,3 @@ df_grouped</code></pre>
   theme_minimal()</code></pre>
 <p><img src="/post/2019-02-03-navigating-spss-variables-with-purrr-and-stringr-part-ii_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
-
-                </section>
-            </article>
-
-            
-
-            
-
-            
-
-            <footer id="footer">
-    
-        <div id="social">
-
-	
-	
-    
-    <a class="symbol" href="https://www.github.com/rvg02010">
-        github
-    </a>
-    
-    <a class="symbol" href="https://www.twitter.com/renatagerecke">
-        twitterbird
-    </a>
-    
-
-
-</div>
-
-    
-    <p class="small">
-    
-       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> renata gerecke
-    
-    </p>
-    <p class="small">
-        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
-</footer>
-
-        </section>
-
-        <script src="/js/jquery-3.3.1.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-
-
-
-
-
-
-    </body>
-</html>

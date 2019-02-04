@@ -25,11 +25,11 @@ In SPSS data files–which use the .sav extension–each variable has a name lik
     <item>
       <title>navigating SPSS variables with purrr and stringr - part ii</title>
       <link>/post/navigating-spss-variables-with-purrr-and-stringr-part-ii/</link>
-      <pubDate>Mon, 21 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 03 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/navigating-spss-variables-with-purrr-and-stringr-part-ii/</guid>
       <description>Recap Last post, I wrote about how we can access SPSS variable metadata using the attributes() and attr() functions in R; in combination with purrr:map_chr() we can easily view variable labels, levels, and more.
-Though the sample data I’ve created only has 10 variables, often I find myself working with hundreds, and little idea how to find the precise variable names I’m looking for. I’ve found stringr:str_extract() to be particularly powerful in this scenario.</description>
+Though the sample data I’ve created only has 10 variables, often I find myself working with hundreds, and little idea how to find the precise variable names I’m looking for. I’ve found stringr:str_detect() (in conjuction with dplyr::select_if()) to be particularly powerful in this scenario.</description>
     </item>
     
   </channel>
