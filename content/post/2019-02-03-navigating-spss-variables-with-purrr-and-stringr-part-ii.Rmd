@@ -17,6 +17,7 @@ tags:
 slug: navigating-spss-variables-with-purrr-and-stringr-part-ii
 ---
 
+[**Download data for this blog**](https://github.com/rvg02010/blog/tree/master/static/data/2019-01-20_sample-data.sav)
 
 ## Recap
 
@@ -27,7 +28,7 @@ Though the sample data I've created only has 10 variables, often I find myself w
 The data we have asks respondents various combinations of two things: to what degree do you [share/read] on [given social network]. Let's say I want to find the questions which ask about Twitter. I can use the following:
 
 ```{r search for twitter}
-library(tidyverse)
+suppressPackageStartupMessages(library(tidyverse))
 library(haven)
 
 df <- read_sav("../../static/data/2019-01-20_sample-data.sav")
